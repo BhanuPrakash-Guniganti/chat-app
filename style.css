@@ -1,82 +1,139 @@
-
-#login, #chat {
-  max-width: 360px;
-  margin: 48px auto 0;
-  padding: 32px 28px;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(40, 48, 96, 0.09);
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
+body {
+  background: radial-gradient(circle, #e9e7fd 60%, #fad0c4 100%);
+  font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+  margin: 0;
+  min-height: 100vh;
 }
 
-input, select, button {
-  padding: 12px 14px;
+#login, #chat {
+  max-width: 400px;
+  margin: 50px auto 0;
+  padding: 34px 24px 24px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 36px 0 rgba(130, 90, 255, 0.09), 0 1.5px 4px #fad0c4;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+input, select {
+  padding: 12px;
   font-size: 1rem;
-  margin: 0 0 8px 0;
-  border-radius: 8px;
-  border: 1px solid #c7d2fe;
-  outline: none;
-  transition: border 0.2s;
-  background: #f1f5fe;
+  margin: 0 0 9px 0;
+  border-radius: 10px;
+  border: 1.5px solid #c7d2fe;
+  background: #f7f7fc;
+  transition: border-color 0.25s;
 }
 
 input:focus, select:focus {
-  border-color: #818cf8;
+  border-color: #ad74ff;
 }
 
 button {
-  background-color: #6366f1;
+  background: linear-gradient(90deg, #ad74ff 0%, #ff8fa3 100%);
   color: #fff;
   border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(255, 143, 163, 0.17);
   cursor: pointer;
-  font-weight: 500;
-  box-shadow: 0 1px 4px #dbeafe;
+  position: relative;
+  transition: box-shadow 0.2s;
 }
 
 button:hover {
-  background-color: #4f46e5;
+  box-shadow: 0 0 12px 4px #fad0c4;
+  background: linear-gradient(90deg, #ad74ff 50%, #ff8fa3 100%);
 }
 
 #messages {
-  background: #f5f8ff;
-  border: 1.5px solid #e0e7ff;
-  border-radius: 14px;
-  height: 220px;
+  background: #f6f6ff;
+  border: 2px solid #e0e7ff;
+  border-radius: 15px;
+  height: 230px;
   padding: 14px;
   overflow-y: auto;
   margin-bottom: 8px;
-  box-shadow: 0 2px 16px rgba(120, 135, 255, 0.05);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
+
+/*
 #messages div {
-  padding: 8px 12px;
-  background: #eef2ff;
-  border-radius: 7px;
+  opacity: 0;
+  animation: fadeInBubble 0.45s forwards;
+  padding: 10px 18px;
+  border-radius: 16px;
   margin-bottom: 4px;
-  max-width: 85%;
+  max-width: 80%;
   word-break: break-word;
-  box-shadow: 0 1px 4px #e0e7ff;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px #fad0c470;
+}
+
+*/
+
+
+<div id="messages-container">
+  <table id="messages-table">
+    <thead>
+      <tr>
+        <th style="width: 120px;">Time</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody id="messages">
+      <!-- Chat rows will go here -->
+    </tbody>
+  </table>
+</div>
+
+
+#messages div:nth-child(even) {
+  align-self: flex-end;
+  background: linear-gradient(90deg, #ad74ff 10%, #fad0c4 90%);
+  color: #fff;
+}
+
+#messages div:nth-child(odd) {
+  align-self: flex-start;
+  background: linear-gradient(90deg, #fff 10%, #f7f7fc 90%);
+  color: #ad74ff;
+  border-bottom-left-radius: 0;
 }
 
 #messages div strong {
-  color: #5746ef;
+  color: #ad74ff;
+}
+
+@keyframes fadeInBubble {
+  to { opacity: 1; transform: translateY(0);}
+  from { opacity: 0; transform: translateY(18px);}
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ad74ff;
+  border-radius: 20px;
 }
 
 @media (max-width: 600px) {
   #login, #chat {
-    max-width: 98vw;
-    padding: 18px 4vw;
+    max-width: 99vw;
+    padding: 16px 3vw 12px;
     border-radius: 0;
     box-shadow: none;
     margin: 0;
   }
   #messages {
-    padding: 8px;
-    height: 170px;
+    padding: 7px;
+    height: 140px;
   }
 }

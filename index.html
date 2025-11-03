@@ -11,10 +11,24 @@
   </div>
   <div id="chat" style="display:none;">
     <select id="roomSelect"></select>
-    <div id="messages"></div>
+
+<div id="messages-container">
+  <table id="messages-table" style="width:100%;">
+    <thead>
+      <tr>
+        <th style="width:115px;">Time</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody id="messages"></tbody>
+  </table>
+</div>
+
+
     <input type="text" id="messageInput" placeholder="Type a message">
     <button onclick="sendMessage()">Send</button>
   </div>
+
   <script src="app.js"></script>
 </body>
 </html>

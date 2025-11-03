@@ -26,6 +26,7 @@ function switchRoom() {
   showMessages();
 }
 
+/*
 function sendMessage() {
   let msgBox = document.getElementById("messageInput");
   let message = msgBox.value.trim();
@@ -34,6 +35,34 @@ function sendMessage() {
   msgBox.value = "";
   showMessages();
 }
+
+
+*/
+
+
+function showMessages() {
+  let msgs = rooms[currentRoom];
+  let messagesTbody = document.getElementById("messages");
+  messagesTbody.innerHTML = "";
+  for (let msg of msgs) {
+    let row = document.createElement("tr");
+
+    let timeCell = document.createElement("td");
+    timeCell.textContent = msg.time;
+    timeCell.style.fontWeight = "bold";
+    timeCell.style.color = "#6366f1";
+
+    let messageCell = document.createElement("td");
+    messageCell.innerHTML = `<strong>${msg.user}</strong>: ${msg.text}`;
+    messageCell.style.fontSize = "1rem";
+
+    row.appendChild(timeCell);
+    row.appendChild(messageCell);
+    messagesTbody.appendChild(row);
+  }
+}
+
+
 
 function showMessages() {
   let msgs = rooms[currentRoom];
