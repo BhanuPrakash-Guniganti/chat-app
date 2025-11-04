@@ -7,8 +7,8 @@ body {
 }
 .premium-chat-wrapper {
   width: 420px;
-  min-height: 450px;
-  border-radius: 28px;
+  min-height: 40px;
+  border-radius: 40px;
   background: rgba(255,255,255,0.16);
   box-shadow: 0 8px 36px 0 rgba(98, 80, 255, 0.15), 0 6px 24px #fad0c4;
   backdrop-filter: blur(18px) saturate(110%);
@@ -22,7 +22,8 @@ body {
 }
 select, input[type="text"] {
   padding: 13px 16px;
-  border-radius: 12px;
+  border-radius: ;
+  border-radius: 20px;
   font-size: 1.1rem;
   border: 2px solid rgba(212,212,255,0.34);
   outline: none;
@@ -59,6 +60,9 @@ button:hover, button:focus {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 2px 12px #fad0c470;
+}
+#messages-container {
+  margin-bottom: 22px;
 }
 #messages-table th, #messages-table td {
   padding: 9px 12px;
